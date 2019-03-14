@@ -1,5 +1,5 @@
 ## 项目初始化目录结构
-
+```
 .
 ├── README.md
 ├── conf                      用于存储配置文件
@@ -18,3 +18,4 @@
 └── utils                     工具函数
 
 9 directories, 6 files
+```
