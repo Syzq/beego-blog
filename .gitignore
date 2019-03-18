@@ -1,4 +1,9 @@
 
 beego-blog
 
+# .idea folder
 .idea/*
+
+.idea/vcs.xml
+
+lastupdate.tmp

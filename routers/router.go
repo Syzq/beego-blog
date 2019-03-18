@@ -9,5 +9,15 @@ import (
 func init() {
 	beego.Router("/", &controllers.MainController{})
 	beego.Router("/test", &controllers.TestController{})
-	beego.Router("/tag", &controllers.TagController{})
+
+
+	ns := beego.NewNamespace("/v1",
+		beego.NSNamespace("/tag",
+			beego.NSInclude(
+				&controllers.TagController{},
+			),
+		),
+	)
+
+	beego.AddNamespace(ns)
 }

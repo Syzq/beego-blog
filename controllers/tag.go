@@ -14,11 +14,36 @@ type TagController struct {
 	beego.Controller
 }
 
-// Get 获取标签
-func (c *TagController) Get() {
-	beego.Error("get")
+func (c *TagController) GetTagByID() {
+	c.Data["json"] = "test"
+	c.ServeJSON()
+}
 
-	c.Data["json"] = models.GetTagTotal()
+// Get 获取标签
+// @router /\:id [get]
+func (c *TagController) Get() {
+
+	count := models.GetTagTotal()
+	c.Data["json"] = count
+	c.ServeJSON()
+}
+
+// @router /all [get]
+func (c *TagController) GetAllTags() {
+	count := models.GetTagTotal()
+	c.Data["json"] = count
+	c.ServeJSON()
+}
+
+// @router / [get]
+func (c *TagController) GetTags() {
+
+	name := c.Ctx.Input.Query("name")
+	// state, _ := strconv.Atoi(c.Ctx.Input.Query("state"))
+	beego.Info(name)
+	data := models.GetTags(10)
+
+	c.Data["json"] = data
 	c.ServeJSON()
 }
 
