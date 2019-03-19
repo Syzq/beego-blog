@@ -10,12 +10,15 @@ type TestController struct {
 
 // Get 获取标签
 func (this *TestController) Get() {
-	user := []int{1, 23, 33}
-	// data := map[string]int{"张三": 43, "李四": 50}
-	// data := map[string]string{
-	// 	"code": "200",
-	// }
-	this.Data["json"] = user
+
+	name := this.Ctx.Input.Query("name")
+	age := this.Ctx.Input.Query("age")
+
+	data := make(map[string]interface{})
+	data["name"] = name
+	data["age"] = age
+
+	this.Data["json"] = data
 	this.ServeJSON()
 }
 
