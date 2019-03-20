@@ -17,6 +17,8 @@ type Tag struct {
 	ModifiedOn time.Time `json:"modified_on" orm:"auto_now;type(datetime)"` //auto_now 每次model 保存时都会对时间自动更新
 	ModifiedBy string    `json:"modified_by" orm:"size(60)"`
 	State      int       `json:"state" orm:"size(10);default(1)"` //状态：0 为禁用，1为启用
+
+	Articles []*Article `orm:"reverse(many)"`
 }
 
 func init() {

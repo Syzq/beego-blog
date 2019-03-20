@@ -48,6 +48,7 @@ func (c *TagController) GetTags() {
 }
 
 // Post 创建标签
+// @router / [post]
 func (c *TagController) Post() {
 	returnData := make(map[string]interface{})
 	// 获取 RequestBody 中的值
