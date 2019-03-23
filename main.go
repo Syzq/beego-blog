@@ -7,13 +7,13 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 
-	_ "beego-blog/models"
-
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 )
 
 func main() {
+	// models.InsertTestData()
+	// models.ReadM2M()
 	beego.Run()
 }
 func init() {

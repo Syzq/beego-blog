@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"beego-blog/models"
+
 	"github.com/astaxie/beego"
 )
 
@@ -11,14 +13,15 @@ type TestController struct {
 // Get 获取标签
 func (this *TestController) Get() {
 
-	name := this.Ctx.Input.Query("name")
-	age := this.Ctx.Input.Query("age")
+	// name := this.Ctx.Input.Query("name")
+	// age := this.Ctx.Input.Query("age")
 
-	data := make(map[string]interface{})
-	data["name"] = name
-	data["age"] = age
+	// data := make(map[string]interface{})
+	// data["name"] = name
+	// data["age"] = age
+	article := models.ReadM2M()
 
-	this.Data["json"] = data
+	this.Data["json"] = article
 	this.ServeJSON()
 }
 
